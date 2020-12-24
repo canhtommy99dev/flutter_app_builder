@@ -1,7 +1,9 @@
-import 'package:flutter_app_builder/Screens/components/body.dart';
+
 import 'package:flutter_app_builder/constrants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'components/body.dart';
 
 class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();

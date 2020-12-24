@@ -27,8 +27,8 @@ List<Product> products = [
       color: Color(0xFF3D82AE)),
   Product(
       id: 2,
-      title: "Belt Bag",
-      price: 234,
+      title: "Belt Bag12",
+      price: 233,
       size: 8,
       description: dummyText,
       image: "assets/images/bag_2.png",
