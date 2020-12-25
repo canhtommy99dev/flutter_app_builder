@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_builder/Model/Product.dart';
 import 'package:flutter_app_builder/Screens/details/components/colorandsize.dart';
+import 'package:flutter_app_builder/Screens/details/components/counter_with_fav_btn.dart';
 import 'package:flutter_app_builder/Screens/details/components/product_title_detail.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../constrants.dart';
+import 'addtocart.dart';
+import 'cart_counter.dart';
+import 'description.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -33,8 +38,15 @@ class Body extends StatelessWidget {
                         topLeft: Radius.circular(24),
                         topRight: Radius.circular(24)),
                   ),
-                  child: Column(
-                      children: <Widget>[ColorAndSize(product: product)])),
+                  child: Column(children: <Widget>[
+                    ColorAndSize(product: product),
+                    SizedBox(height: kDefaultPaddin / 2),
+                    DescriptionItem(product: product),
+                    SizedBox(height: kDefaultPaddin / 2),
+                    CounterWithFavBtn(),
+                    SizedBox(height: kDefaultPaddin / 2),
+                    AddToCard(product: product)
+                  ])),
               ProductTileImage(product: product),
             ],
           ))

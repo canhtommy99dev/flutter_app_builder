@@ -3,7 +3,9 @@ import 'package:flutter_app_builder/constrants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: MySplashScreen(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,5 +19,31 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: MyHomePage());
+  }
+}
+
+class MySplashScreen extends StatefulWidget {
+  @override
+  _MySplashScreenState createState() => _MySplashScreenState();
+}
+
+class _MySplashScreenState extends State<MySplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyApp(),
+          ));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: FlutterLogo(size: 400)),
+    );
   }
 }
