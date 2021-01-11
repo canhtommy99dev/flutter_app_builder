@@ -1,6 +1,8 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter_app_builder/Screens/home/home_screen.dart';
 import 'package:flutter_app_builder/constrants.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -32,19 +34,28 @@ class _MySplashScreenState extends State<MySplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MyApp(),
-          ));
-    });
+    // Future.delayed(Duration(seconds: 3), () {
+    //   Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //         builder: (context) => MyApp(),
+    //       ));
+    // });
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: FlutterLogo(size: 400)),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AnimatedSplashScreen(
+        splash: FlutterLogo(),
+        nextScreen: MyApp(),
+        splashTransition:  SplashTransition.slideTransition,
+        pageTransitionType: PageTransitionType.bottomToTop,
+        backgroundColor: Colors.amber,
+        duration: 5000,
+      ),
     );
   }
 }
